@@ -22,10 +22,10 @@ server.get('/weather', (req, res) => {
 
 server.get('/weather/:lon/:lat/:city_name', (req, res) => {
     const data = weatherjson.find(
-        (c) =>
-        +c.lon === +req.params.lon &&
-        +c.lat === +req.params.lat &&
-        c.city_name === req.params.city_name
+        (ele) =>
+        +ele.lon === +req.params.lon &&
+        +ele.lat === +req.params.lat &&
+        ele.city_name === req.params.city_name
     );
     data
         ?
@@ -36,7 +36,7 @@ server.get('/weather/:lon/:lat/:city_name', (req, res) => {
 server.get('/weather/:city_name', (req, res) => {
     let weatherArr = [];
 
-    const resData = weatherjson.find((c) => c.city_name === req.params.city_name);
+    const resData = weatherjson.find((ele) => ele.city_name === req.params.city_name);
 
     if (resData) {
         resData.data.map((day) => {
