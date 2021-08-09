@@ -50,7 +50,7 @@ server.get('/weather/:city_name', (req, res) => {
 
 class Forecast {
     constructor(city) {
-        this.date = new Date(city.datetime).toString().slice(0, 15);
+        this.date = city.datetime;
         this.description = city.weather.description
     }
 };
